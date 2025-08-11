@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIRUS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e1e, #550000);
+      color: white;
+      overflow-x: hidden;
+    }
+
+header {
+  width: 100%;
+  background-color: rgba(201, 0, 0, 0.2); /* ciemniejsze, lekko przezroczyste */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px; /* zwiększona wysokość paska */
+  position: relative;
+  padding: 0 20px;
+}
+
+header img {
+  position: absolute;
+  left: 20px;
+  height: 100px; /* powiększone logo */
+}
+
+h1 {
+  margin: 0;
+  font-size: 38px; /* większy napis */
+  text-align: center;
+  text-shadow: 1px 1px 5px black;
+}
+
+
+    main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 30px;
+      flex-wrap: nowrap;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .side-panel {
+      width: 22%;
+      padding: 10px;
+      animation: slideIn 2s ease-in-out;
+    }
+
+    .center-panel {
+      width: 50%;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .center-panel button {
+      padding: 100px 40px;
+      font-size: 22px;
+      background: linear-gradient(to right, #ff3333, #cc0000);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff3333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .center-panel button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff6666;
+      padding-top: 100px; /* ← TO DODAJE ODSTĘP OD GÓRY */
+    }
+
+    .center-panel video {
+      display: none;
+      margin-top: 30px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .aktualnosc {
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .aktualnosc:hover {
+      transform: scale(1.05);
+    }
+
+    .aktualnosc img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid white;
+    }
+
+    .aktualnosc p {
+      margin-top: 5px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+      from {transform: translateX(-50px); opacity: 0;}
+      to {transform: translateX(0); opacity: 1;}
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-panel, .center-panel {
+        width: 100%;
+      }
+
+      header img {
+        position: static;
+        margin-right: 10px;
+      }
+
+      header {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://zosprp.pl/wp-content/uploads/2022/01/logo_mdp.png" alt="Logo MDP">
+    <h1>MDP - NOWINKI</h1>
+  </header>
+
+  <main>
+    <div class="side-panel">
+      <div class="aktualnosc">
+        <img src="file:///C:/Users/pauli/Downloads/512346622_749333310990312_117983380630385436_n.jpg" alt="Wspomnienie 1">
+        <p>OSP TYMOWA POMAGA</p>
+      </div>
+      <div class="aktualnosc">
+        <img src="file:///C:/Users/pauli/Downloads/501311605_726656576591319_3477472095565343876_n.jpg" alt="Wspomnienie 2">
+        <p>Zawody MDP</p>
+      </div>
+    </div>
+
+    <div class="center-panel">
+      <button onclick="pokazFilm()">NIE KLIKAJ</button>
+      <video id="filmAntka" controls>
+        <source src="YouCut_20250808_203919737.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="side-panel">
+      <div class="aktualnosc">
+        <img src="file:///C:/Users/pauli/Downloads/109928105_978345875962071_1459616501783961628_n.jpg" alt="Wspomnienie 3">
+        <p>11 sierpnia - święto Antka 🔥</p>
+      </div>
+      <div class="aktualnosc">
+        <img src="file:///C:/Users/pauli/Downloads/476839944_647301974526780_770748883234248564_n.jpg" alt="Wspomnienie 4">
+        <p>Wyjazd drużynowy 💪</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function pokazFilm() {
+      const video = document.getElementById('filmAntka');
+      video.style.display = 'block';
+      video.scrollIntoView({ behavior: 'smooth' });
+      video.play();
+    }
+  </script>
+</body>
+</html>
